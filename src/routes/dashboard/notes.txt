@@ -1,0 +1,73 @@
+<div class="space-y-4">
+	<h1 class="text-2xl font-bold text-gray-900 dark:text-white">Dashboard Overview</h1>
+
+	<p class="text-gray-600 dark:text-gray-400">
+		Welcome back{#if data.user}, <span class="font-medium">{data.user.name}</span>{/if}!
+	</p>
+	<p class="text-gray-600 dark:text-gray-400">
+		This page uses the dashboard layout, styled with Tailwind CSS.
+	</p>
+
+	<div
+		class="rounded-md border border-dashed border-gray-300 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700/50"
+	>
+		<h3 class="mb-2 text-lg font-semibold">Data from Layouts:</h3>
+		<ul class="list-inside list-disc space-y-1 text-sm text-gray-700 dark:text-gray-300">
+			<li>Site Name (Root Layout): {data.siteName}</li>
+			<li>Section Title (Dashboard Layout): {data.sectionTitle}</li>
+		</ul>
+	</div>
+
+
+
+	web control btns -------------------
+
+	<h4 class="mb-8 text-center text-3xl font-bold text-gray-800 dark:text-white">Manual Overide</h4>
+	
+		
+			<div class=" text-sm font-medium text-gray-900 dark:text-gray-300"
+				>Conservatory Humidifier</div
+			>
+			
+				<button
+					type="button"
+					role="switch"
+					aria-checked={isCheckedHumidifier}
+					onclick={handleHumidifier}
+					class="relative ml-2 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
+					class:bg-green-500={isCheckedHumidifier}
+					class:bg-gray-200={!isCheckedHumidifier}
+				>
+					
+				</button>
+			
+	
+		<div class=" text-sm font-medium text-gray-900 dark:text-gray-300">Garden Water Valve</div>
+
+		<button
+			type="button"
+			role="switch"
+			aria-checked={isCheckedWaterValve}
+			onclick={handleWaterValve}
+			class="relative ml-2 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
+			class:bg-green-500={isCheckedWaterValve}
+			class:bg-gray-200={!isCheckedWaterValve}
+		>
+		
+		</button>
+
+
+	
+		<div class=" text-sm font-medium text-gray-900 dark:text-gray-300">Mute Water Valve</div>
+
+		<button
+			type="button"
+			role="switch"
+			aria-checked={isValveOveride}
+			onclick={handleWaterOveride}
+			class="relative ml-2 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
+			class:bg-green-500={isValveOveride}
+			class:bg-gray-200={!isValveOveride}
+		>
+			
+		</button>
