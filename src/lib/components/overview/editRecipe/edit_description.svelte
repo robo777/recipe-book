@@ -16,7 +16,7 @@
 		onSnapshot
 	} from 'firebase/firestore';
 
-	import { toasts, ToastContainer, FlatToast, BootstrapToast }  from "svelte-toasts";
+	//import { toasts, ToastContainer, FlatToast, BootstrapToast }  from "svelte-toasts";
 
 	let categories = $state([]);
 	let recipes = $state([]);
@@ -35,25 +35,25 @@
 	let rating = $state('');
 
 
-	const showToast = () => {
-    const toast = toasts.add({
-      title: 'Updated',
+// 	const showToast = () => {
+//     const toast = toasts.add({
+//       title: 'Updated',
       
-      duration:3000, // 0 or negative to avoid auto-remove
-      placement: 'bottom-left',
-      type: 'success',
-      theme: 'light',
+//       duration:3000, // 0 or negative to avoid auto-remove
+//       placement: 'bottom-left',
+//       type: 'success',
+//       theme: 'light',
     
-      type: 'success',
+//       type: 'success',
       
-      onClick: () => {},
-      onRemove: () => {},
-      // component: BootstrapToast, // allows to override toast component/template per toast
-    });
+//       onClick: () => {},
+//       onRemove: () => {},
+//       // component: BootstrapToast, // allows to override toast component/template per toast
+//     });
 
-    // toast.remove()
+//     // toast.remove()
 
-  };
+//   };
 
 	// get recipe categories and uom options from firebase
 
@@ -132,7 +132,7 @@
 			{ merge: true }
 		
 		);
-		showToast();
+		//showToast();
 
 		// update firebase
 	}
@@ -232,9 +232,9 @@
 			</div>
 		</div>
 	</form>
-	<ToastContainer placement="bottom-right" let:data={data}>
-    <FlatToast {data} /> <!-- Provider template for your toasts -->
-  </ToastContainer>
+	<!-- <ToastContainer placement="bottom-right" let:data={data}>
+    <FlatToast {data} />  Provider template for your toasts -->
+  <!-- </ToastContainer>  -->
 </div>
 
 <style>

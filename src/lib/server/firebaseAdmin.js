@@ -4,7 +4,7 @@ import {
 	FIREBASE_ADMIN_TYPE,
 	FIREBASE_ADMIN_PROJECT_ID,
 	FIREBASE_ADMIN_PRIVATE_KEY_ID,
-	//FIREBASE_ADMIN_PRIVATE_KEY,
+	FIREBASE_ADMIN_PRIVATE_KEY,
 	FIREBASE_ADMIN_CLIENT_EMAIL,
 	FIREBASE_ADMIN_CLIENT_ID,
 	FIREBASE_ADMIN_AUTH_URI,
@@ -14,7 +14,7 @@ import {
 } from '$env/static/private';
 
 // Ensure private key newlines are correctly interpreted
-//const privateKey = FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n');
+const privateKey = FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n');
 
 if (!admin.apps.length) {
 	try {
@@ -23,7 +23,7 @@ if (!admin.apps.length) {
 				type: FIREBASE_ADMIN_TYPE,
 				project_id: FIREBASE_ADMIN_PROJECT_ID,
 				private_key_id: FIREBASE_ADMIN_PRIVATE_KEY_ID,
-				//private_key: privateKey,
+				private_key: privateKey,
 				client_email: FIREBASE_ADMIN_CLIENT_EMAIL,
 				client_id: FIREBASE_ADMIN_CLIENT_ID,
 				auth_uri: FIREBASE_ADMIN_AUTH_URI,
