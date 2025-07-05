@@ -11,7 +11,8 @@ import {
 	FIREBASE_ADMIN_TOKEN_URI,
 	FIREBASE_ADMIN_AUTH_PROVIDER_X509_CERT_URL,
 	FIREBASE_ADMIN_CLIENT_X509_CERT_URL,
-} from '$env/dynamic/private';
+} from '$env/static/private';
+
 
 // Ensure private key newlines are correctly interpreted
 const privateKey = FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n');
