@@ -6,6 +6,6 @@ export async function load({ locals }) {
 	return {
 		// Pass minimal user data needed by layouts/pages
 		user: user ? { uid: user.uid, name: user.name || user.email, email: user.email } : null,
-		siteName: 'My Awesome App',
+		siteName: 'Recipe Book',
 	};
 }

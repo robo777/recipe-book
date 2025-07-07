@@ -56,7 +56,8 @@
 		category: '',
 		feeds:'',
 		rating: 0,
-		planned: false
+		planned: false,
+		
 	});
 
 	const STORAGE_KEY = 'desc';

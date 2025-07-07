@@ -30,6 +30,9 @@
 	let showForm = $state(false);
 	let showModal = $state(false);
 	let show = $state(false);
+	let btnCol = $state('bg-purple-500')
+	let isActive = $state(true)
+
 
 	let refreshTrigger = $state(0); // Used to trigger parent refresh
 
@@ -112,25 +115,7 @@
 		showForm = false;
 	}
 
-	async function schedule(id) {
-		const product = recipes.find((b) => b.id === id);
-		if (product) {
-			product.active = !product.active;
-		}
-
-		console.log('active', product.active);
-		console.log('id', id);
-
-		const updatedStatus = {
-			details: {
-				planned: product.active
-			}
-		};
-
-		const userDocRef = doc(db, 'meals', id);
-
-		await setDoc(userDocRef, updatedStatus, { merge: true });
-	}
+	
 
 	function showDeleteModal() {
 		console.log('open del modal');
@@ -156,9 +141,12 @@
 		{searchTerm}
 		{selRecipe}
 		{recipes}
-		{schedule}
+	
 		{viewDetails}
 		{showForm}
+		{isActive}
+		
+		
 	/>
 {/if}
 

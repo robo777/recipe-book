@@ -16,7 +16,7 @@
 		onSnapshot
 	} from 'firebase/firestore';
 	import { signInWithEmailAndPassword } from 'firebase/auth';
-	// import { toasts, ToastContainer, FlatToast, BootstrapToast }  from "svelte-toasts";
+	 import { toasts, ToastContainer, FlatToast, BootstrapToast }  from "svelte-toasts";
 
    
 
@@ -43,25 +43,25 @@
    
 
 	//const ingredientsRef = collection(db, 'ingredients');
-// const showToast = () => {
-//     const toast = toasts.add({
-//       title: 'Updated',
+const showToast = () => {
+    const toast = toasts.add({
+      title: 'Updated',
       
-//       duration:3000, // 0 or negative to avoid auto-remove
-//       placement: 'bottom-left',
-//       type: 'success',
-//       theme: 'light',
+      duration:3000, // 0 or negative to avoid auto-remove
+      placement: 'bottom-left',
+      type: 'success',
+      theme: 'light',
     
-//       type: 'success',
+      type: 'success',
       
-//       onClick: () => {},
-//       onRemove: () => {},
-//       // component: BootstrapToast, // allows to override toast component/template per toast
-//     });
+      onClick: () => {},
+      onRemove: () => {},
+      // component: BootstrapToast, // allows to override toast component/template per toast
+    });
 
-//     // toast.remove()
+     toast.remove()
 
-//   };
+  };
    
 
 	const saved = localStorage.getItem('editId');
@@ -198,7 +198,7 @@
 			{ merge: true }
 		);
 
-		//showToast()
+		showToast()
 		
 	}
 </script>
@@ -347,9 +347,9 @@
 		</div>
 	</div>
 
-    <!-- <ToastContainer placement="bottom-right" let:data={data}> -->
-    <!-- <FlatToast {data} />  -->
-  <!-- </ToastContainer> -->
+     <ToastContainer placement="bottom-right" let:data={data}> 
+     <FlatToast {data} />  
+   </ToastContainer> 
 </main>
 
 <style>

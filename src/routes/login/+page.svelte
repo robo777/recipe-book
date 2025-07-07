@@ -12,7 +12,7 @@
 	let error = $state('');
 	let loadingEmail = $state(false);
 	let loadingGoogle = $state(false);
-	let redirectTo = $derived($page.url.searchParams.get('redirectTo') || '/dashboard');
+	let redirectTo = $derived($page.url.searchParams.get('redirectTo') || '/dashboard/recipes');
 
 	$effect(() => {
 		if (rootData.user) {

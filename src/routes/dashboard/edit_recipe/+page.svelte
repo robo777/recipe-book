@@ -10,4 +10,3 @@
 
 <EditRecipeTabbedPage/>
 
-edit tabbed

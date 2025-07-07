@@ -172,47 +172,5 @@
 		}
 	}
 
-	h2 {
-		color: #1e293b;
-		margin-bottom: 1rem;
-	}
 
-	p {
-		/* color: #475569; */
-		line-height: 1.6;
-		margin-bottom: 1rem;
-	}
-
-	ul {
-		color: #475569;
-		line-height: 1.6;
-		margin-left: 1rem;
-	}
-
-	li {
-		margin-bottom: 0.5rem;
-	}
-
-	code {
-		background-color: #f1f5f9;
-		padding: 0.2rem 0.4rem;
-		border-radius: 0.25rem;
-		font-family: 'Courier New', monospace;
-		color: #e11d48;
-	}
-
-	.contact-info {
-		background-color: #f8fafc;
-		padding: 1.5rem;
-		border-radius: 0.5rem;
-		border-left: 4px solid #3b82f6;
-	}
-
-	.contact-info p {
-		margin-bottom: 0.5rem;
-	}
-
-	.contact-info strong {
-		color: #1e293b;
-	}
 </style>

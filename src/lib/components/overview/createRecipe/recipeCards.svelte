@@ -1,4 +1,7 @@
 <script>
+	import { db } from '$lib/client/firebase';
+	import { doc,setDoc } from 'firebase/firestore';
+
 	let {
 		searchTerm,
 		selectedCategory,
@@ -9,7 +12,9 @@
 		showForm,
 		recipeId,
 		viewDetails,
-		schedule
+
+		isActive,
+		index
 	} = $props();
 
 	// Filtered recipes using rune
@@ -21,6 +26,23 @@
 			return matchesSearch && matchesCategory;
 		});
 	});
+
+	async function schedule(recipe) {
+		recipe.details.planned = !recipe.details.planned;
+
+		// find id of recipe
+		let recipeId = recipe.id
+
+		console.log('is tog', recipe.details.isToggled, recipeId);
+		const updatedStatus = {
+			details: {
+				planned: recipe.details.planned
+				
+			}
+		};
+		const userDocRef = doc(db, 'meals', recipeId);
+		await setDoc(userDocRef, updatedStatus, { merge: true });
+	}
 </script>
 
 {#if !showForm}
@@ -49,7 +71,6 @@
 						/>
 					</div>
 
-					
 					<!-- Category Filter -->
 					<div class="md:w-48">
 						<label for="category" class="mb-2 block text-sm font-medium text-gray-700">
@@ -67,7 +88,6 @@
 						</select>
 					</div>
 
-					
 					<!-- Active Filters Display -->
 					{#if searchTerm || selectedCategory !== 'All'}
 						<div class="mt-4 flex flex-wrap gap-2">
@@ -114,7 +134,7 @@
 			<div>
 				{#if filteredRecipes().length > 0}
 					<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-						{#each filteredRecipes() as recipe (recipe.id)}
+						{#each filteredRecipes() as recipe, index (recipe.id)}
 							<div
 								class="overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 hover:shadow-lg"
 							>
@@ -160,7 +180,7 @@
 											<span class="mr-2 text-sm text-gray-500">Rating:</span>
 											<div class="flex items-center text-gray-700">
 												<span class="mr-1"></span>
-												<span class="font-medium">{recipe.details.rating} / 10</span>
+												<span class="font-medium">{recipe.details.rating} / 10 </span>
 											</div>
 										</div>
 
@@ -173,17 +193,22 @@
 												>
 													View Recipe
 												</button>
-											
-										</span>
-										<span>
-										<div class=" flex items-center">
-											<button
-												class="ml-3 w-full rounded-lg bg-purple-500 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-blue-700"
-												onclick={() => schedule(recipe.id)}
+											</span>
+											<span>
+												<div class=" flex items-center">
+													<button
+														class="ml-3 w-full rounded-lg px-4 py-2 font-small text-white transition-colors duration-200
+														
+														{recipe.details.planned
+															? 'bg-green-600 hover:bg-green-500'
+															: 'bg-purple-600 hover:bg-purple-500'}"
+														onclick={() => schedule(recipe)}
+													>	{recipe.details.planned
+														?'Scheduled'
+														:'Schedule'}
+													</button>
+												</div></span
 											>
-												Schedule
-											</button>
-										</span>
 										</div>
 									</div>
 								</div>

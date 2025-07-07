@@ -20,35 +20,36 @@
 	let error = $state(null);
 	let dataMissing = $state('');
 	let errorLog = $state([]);
+	let okLog = $state([]);
 	let errorCheck = $state(0);
 	let imagePack = $state([])
-
+	let images = $state([])
+	let placeHolder = $state([{order: 0, url: 'https://firebasestorage.googleapis.com/v0/b/mealmanager-829bc.appspot.com/o/images%2F1751019117218-place-holder.jpg?alt=media&token=b7fc882a-cb23-4810-a46e-b034763bac9c', path: 'images/1751713738233-place-holder.jpg'}])
 	//console.log("index",methodSteps.findIndex())
 
 	const method = JSON.parse(localStorage.getItem('method'));
 	const details = JSON.parse(localStorage.getItem('desc'));
 	const ingredients = JSON.parse(localStorage.getItem('recipe'));
-	const images = JSON.parse(localStorage.getItem('images'));
-
-	console.log('details ', details);
-	console.log('method', method);
-	console.log('images', images);
-	console.log('ingredients', ingredients);
-
-	async function deleteTempImages() {
-		const notesRef = collection(db, 'notes');
-		const q = query(notesRef, limit(3));
-		const snapshot = await getDocs(q);
-
-		const deletes = snapshot.docs.map((d) => deleteDoc(doc(db, 'notes', d.id)));
-		await Promise.all(deletes);
-
-		return { success: true };
-	}
+	 images = JSON.parse(localStorage.getItem('images'));
+	
 
 	//Check for missing data
 
 	function checkData() {
+
+		 if (images === null ){ images = [...placeHolder];};
+			
+		// 	order:placeHolder.order,
+		// 	url:placeHolder.url,
+		// 	path:placeHolder.path,
+
+		// })
+	
+	//}
+
+	console.log("images null", images)
+
+
 		errorLog = [];
 		errorCheck = 0;
 
@@ -67,8 +68,9 @@
 
 		if (images == null || images.length === 0) {
 			console.log('no images');
-			errorLog.push('images are missing');
-			errorCheck = 1;
+			errorLog.push('images are missing, placeholder used');
+			 
+			errorCheck = 0;
 		} else {
 			console.log('images is here');
 		}
@@ -99,6 +101,10 @@
 
 	async function getWebData() {
 		// add recipe to firestore
+
+		okLog.push('Recipe saved, go to "Recipes" to check');
+
+		console.log("images length", images.length)
 
 		let imagePack = [];
 
@@ -144,7 +150,13 @@
 
 
 {#each errorLog as e}
-	<div class="text-red-600">
+	<div class="text-red-600 font-bold">
+		<p class="mt-1 text-sm break-words">{e}</p>
+	</div>
+{/each}
+
+{#each okLog as e}
+	<div class="text-green-600 font-bold">
 		<p class="mt-1 text-sm break-words">{e}</p>
 	</div>
 {/each}

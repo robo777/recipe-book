@@ -9,7 +9,8 @@ export async function load() {
 			{ href: '/dashboard/recipes', label: 'Recipes' },
 			{ href: '/dashboard', label: 'Recipe Creator' },
 			{ href: '/dashboard/ingredients', label: 'Ingredients' },
-			{ href: '/dashboard/admin', label: 'Admin' }
+			{ href: '/dashboard/admin', label: 'Admin' },
+			{ href: '/dashboard/schedule', label: 'Schedule' }
 		]
 	};
 

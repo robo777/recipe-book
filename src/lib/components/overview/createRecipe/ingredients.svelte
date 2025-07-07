@@ -241,7 +241,7 @@
 			</div>
 		{:else}
 			<div class="divide-y divide-gray-200">
-				{#each filteredIngredients as ingredient (ingredient.id)}
+				{#each filteredIngredients as ingredient, index (ingredient.id)}
 					<div class="flex items-center justify-between px-6 py-4 hover:bg-gray-50">
 						{#if editingId === ingredient.id}
 							<!-- Edit Form -->

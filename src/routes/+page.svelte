@@ -20,7 +20,7 @@
 		</p>
 		<div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
 			<div class="rounded-md shadow">
-				<a href="/dashboard" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 md:py-4 md:text-lg md:px-10">
+				<a href="/dashboard/recipes" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 md:py-4 md:text-lg md:px-10">
 					Go to Dashboard
 				</a>
 			</div>
