@@ -58,9 +58,9 @@
       } finally {
         loading = false;
       }
-    //   console.log('uoms',uomOptions)
-    //     console.log('cats',categories)
-	// 	console.log('ingredientsxx',ingredients)
+   console.log('uoms',uomOptions)
+        console.log('cats',categories)
+	 	console.log('ingredientsxx',ingredients)
     };
 
     fetchData();
@@ -105,7 +105,16 @@
 				ingredsupplier: newIngredient.ingredsupplier,
 				ingreduom: newIngredient.ingreduom
 			});
+
+		
 		}
+
+		 newIngredient = ({
+		ingredname: '',
+		ingredcategory: '',
+		ingreduom: '',
+		ingredsupplier: ''
+	});
 	}
 
 	async function deleteIngredient(id) {
@@ -259,7 +268,7 @@
 								>
 									<option value="">Select category</option>
 									{#each categories as category}
-										<option value={category}>{category}</option>
+										<option value={category.category}>{category.category}</option>
 									{/each}
 								</select>
 								<select
@@ -269,7 +278,7 @@
 								>
 									<option value="">Select UoM</option>
 									{#each uomOptions as uom}
-										<option value={uom}>{uom}</option>
+										<option value={uom.uomname}>{uom.uomname}</option>
 									{/each}
 								</select>
 								<input

@@ -1,6 +1,6 @@
 
 <!-- Toast.svelte -->
-<!-- <script>
+<script>
   let { message = '', type = 'info', show = $bindable(false), duration = 93000 } = $props();
   
   let timeoutId = $state();
@@ -44,4 +44,4 @@
       </button>
     </div>
   </div>
-{/if} -->
+{/if}
