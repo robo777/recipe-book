@@ -128,13 +128,13 @@
 			});
 		}
 			// delete web storage
-			// localStorage.removeItem('desc');
-			// localStorage.removeItem('method');
-			// localStorage.removeItem('recipe');
-			// localStorage.removeItem('images');
+			localStorage.removeItem('desc');
+			localStorage.removeItem('method');
+			localStorage.removeItem('recipe');
+			localStorage.removeItem('images');
 
 			
-		//}
+		
 	}
 
 	
